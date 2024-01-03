@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %} {% block content %}
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+        <li>Services</li>
+      </ol>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>{{s.description}}</p>
+      </div>
+
+      <div class="row">
+        {%for item in si %}
+        <div
+          class="col-xl-3 col-md-6 d-flex align-items-stretch"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="icon-box">
+            <p>{{item.description}}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- End Services Section -->
+  {% endblock %}
+</html>

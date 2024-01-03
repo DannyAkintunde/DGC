@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+{% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+          <li><a href="{% url 'dgc_app:news' %}">News</a></li>
+          <li>{{news.title}}</li>
+        </ol>
+        <h2>{{news.title}}</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-8">
+            {% if news.image.count > 1 %}
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                {% for image in news.image.all %}
+                <div class="swiper-slide">
+                  <img src="/{{image.image}}" alt="">
+                </div>
+                {% endfor %}
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            {% elif news.image.count == 1  %}
+            <img style="max-width: 100%; object-fit: contain;" src="/{{news.image.first.image}}" alt="" >
+            {% else %}
+            <img style="max-width: 100%; object-fit: contain;" src="{% static 'assets/img/no-image-found-360x260.png' %}" alt="">
+            {% endif %}
+          </div>
+        <div class="col-lg-4">
+            <div class="portfolio-description">
+              <h2>{{news.headline}}</h2>
+              <p>
+                {{news.descripion | safe}}
+              </p>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </section><!-- End Portfolio Details Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dgc_app:index' %}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dgc_app:about' %}">About us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dgc_app:services' %}">Services</a></li>
+            </ul>
+          </div>
+          {% endblock %}

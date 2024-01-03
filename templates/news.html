@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %} {% block content %}
+  <!-- ======= Breadcrumbs ======= -->
+  <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+      <ol>
+        <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+        <li>News</li>
+      </ol>
+    </div>
+  </section>
+  <!-- End Breadcrumbs -->
+
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>News</h2>
+        <!--<p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>-->
+      </div>
+
+      <div class="row">
+        {% for item in news %} {% if not item %}
+        <h5>NO NEWS</h5>
+        {%else%}
+        <div
+          class="col-lg-6"
+          style="margin-top: 5%"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
+          <div class="member d-flex align-items-start">
+            {% if item.image.first.image %}
+            <div
+              class="pic"
+              style="
+                overflow: hidden;
+                max-height: 250px;
+                border-radius: 5%;
+                width: 400px;
+                object-fit: contain;
+              "
+            >
+              <img
+                src="{{item.image.first.image}}"
+                class="img-fluid"
+                alt="news image"
+              />
+            </div>
+            {% else %}
+            <div
+              class="pic"
+              style="
+                overflow: hidden;
+                max-height: 250px;
+                border-radius: 5%;
+                width: 400px;
+                object-fit: contain;
+              "
+            >
+              <img
+                src="{% static 'assets/img/no-image-found-360x260.png'%}"
+                class="img-fluid"
+                alt="no image"
+              />
+            </div>
+            {% endif %}
+            <div class="member-info">
+              <h4>
+                <a href="{% url 'dgc_app:news_details' item.title %}"
+                  >{{item.title}}</a
+                >
+              </h4>
+              {%if item.tag %}
+              <span>{{item.tag}}</span>
+              {% endif %}
+              <p>{{item.short_descripion}}</p>
+            </div>
+          </div>
+        </div>
+        {%endif%} {% endfor %}
+      </div>
+    </div>
+  </section>
+  <!-- End Team Section -->
+
+  {% endblock %}
+</html>

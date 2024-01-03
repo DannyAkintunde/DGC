@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+    {% block content %}
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+          <li>Courses</li>
+        </ol>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Available COURSES</h2>
+        </div>
+
+        <div class="row content">
+          <div >
+            <p>{{avalable_courses.description}}</p>
+            <ul>
+              {% for item in course %}
+              <li><i class="ri-check-double-line"></i>{{item.title}}</li>
+              {% endfor%}
+            </ul>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+{% endblock %}
+

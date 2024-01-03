@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>..::.. DIAMOND GIANT CONSULTING ..::..</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'assets/img/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/img/favicon-16x16.png' %}">
+  <link rel="manifest" href="{% static 'assets/img/site.webmanifest'%}">
+  <link rel="icon" href=" {% static 'assets/img/favicon.ico' %}" type="image/ico" sizes="100x105">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/style.css'%}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center">
+
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="{% url 'dgc_app:index' %}" class="logo me-auto"><img src="{% static 'assets/img/logo.png'%}" alt="" class="img-fl"uid"></a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'dgc_app:index' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'dgc_app:about' %}">About</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'dgc_app:services' %}">Services</a></li>
+          <li><a class="nav-link   scrollto" href="{% url 'dgc_app:courses' %}">Courses</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'dgc_app:news'%}">News</a></li>
+          <li class="dropdown"><a href="#"><span>Available Countries</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% for item in acs %}
+              {% if not ac %}
+              <li><a href="avaliable-countries/{{item.url}}">{{item.nav_title}}</a></li>
+              {% else %}
+              {% if ac.url == item.url %}
+              <li><a href="">{{item.nav_title}}</a></li>
+              {% else %}
+              <li><a href="{{item.url}}">{{item.nav_title}}</a></li>
+              {% endif %}
+              {%  endif %}
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="getstarted scrollto" href="{% url 'dgc_app:courses' %}">Get Started</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block content %}{% endblock %}
+
+  <main id="main">
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients section-bg">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-in">
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/diamondgiant_2014004001.jpg'%}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/diamondgiant_2014004005.gif'%}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/diamondgiant_2014004008.jpg'%}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/diamondgiant_2014004018.gif'%}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/diamondgiant_2014004002.jpg'%}" class="img-fluid" alt="">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+            <img src="{% static 'assets/img/clients/images.png'%}" class="img-fluid" alt="">
+          </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Cliens Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact" >
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>Call Emmanuel or Vivianne</p>
+        </div>
+
+        <div class="row">
+
+          <div >
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>{{c.address}}</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>
+                {% for item in e %}
+                <a href="mailto:{{item.email}}">
+                  {{item.email}}
+                </a>
+                {% endfor %}
+                </p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>{% for item in p %}
+                  {{item.phone_number}}
+                  {% endfor %}</p>
+              </div>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+
+
+
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <div class="social-links mt-3">
+              <a href="https://twitter.com/DIAMOND_GIANT" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="http://www.facebook.com/Diamond-Giant-Consulting-177736382295076" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="http://ng.linkedin.com/pub/emmanuel-bassey-ekpe/34/b09/b88" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://www.youtube.com/channel/UC8MYHRPUSpBJlY5rw-1M6LQ" class="youtube"><i class="bx bxl-youtube"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        Copyright © 2015 - 2030, Diamond Giant Consulting. All Rights Reserved.
+      </div>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and <a href="http://www.oludigital.com.ng/">OLUDIGITAL Ventures.</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/aos/aos.js'%}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js'%}"></script>
+  <script src="{% static 'assets/vendor/waypoints/noframework.waypoints.js'%}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>
