@@ -80,10 +80,10 @@ WSGI_APPLICATION = 'DGC.wsgi.application'
 DATABASES = {
   'default': {
     'ENGINE': 'django.db.backends.postgresql',
-    'NAME': 'dgc',
-    'USER': 'DannyAkintunde',
-    'PASSWORD': 'BDUnO0fhoN3Y',
-    'HOST': 'ep-dawn-sound-83045044.us-east-2.aws.neon.tech',
+    'NAME': 'verceldb',
+    'USER': 'default',
+    'PASSWORD': '2YoZJBlN0IDE',
+    'HOST': 'ep-sparkling-term-51934447-pooler.us-east-1.postgres.vercel-storage.com',
     'PORT': '5432',
     'OPTIONS': {'sslmode': 'require'},
   }
