@@ -1828,3 +1828,30 @@ section {
     padding-top: 4px;
   }
 }
+
+/* No News Message styles */
+.no-news-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.no-news-message {
+  font-size: 18px;
+  color: #333;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+  .no-news-container {
+    margin-top: 10px;
+  }
+
+  .no-news-message {
+    padding: 15px;
+    font-size: 16px;
+  }
+}
