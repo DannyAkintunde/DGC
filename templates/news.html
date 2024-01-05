@@ -22,9 +22,12 @@
       </div>
 
       <div class="row">
-        {% for item in news %} {% if not item %}
-        <h5>NO NEWS</h5>
-        {%else%}
+        {% if not news %}
+          <div class="no-news-container">
+            <p class="no-news-message">Currently, there is no news to display. Please check back later for updates.</p>
+          </div>
+        {% endif %}
+        {% for item in news %} 
         <div
           class="col-lg-6"
           style="margin-top: 5%"
@@ -79,8 +82,7 @@
               <p>{{item.short_descripion}}</p>
             </div>
           </div>
-        </div>
-        {%endif%} {% endfor %}
+        </div> {% endfor %}
       </div>
     </div>
   </section>
