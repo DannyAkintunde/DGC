@@ -1855,3 +1855,8 @@ section {
     font-size: 16px;
   }
 }
+
+.col-8{
+    flex: 0 0 auto;
+    width: 12.5%;
+}
