@@ -1,8 +1,6 @@
 {% extends "base.html" %}
-<!DOCTYPE html>
-<html lang="en">
-  {% load static %} {% block content %}
-
+{% load static %}
+{% block content %}
   <!-- ======= Breadcrumbs ======= -->
   <section id="breadcrumbs" class="breadcrumbs">
     <div class="container">
@@ -26,7 +24,6 @@
               <strong>DIAMOND GIANT CONSULTING</strong>
             </h3>
           </div>
-          <p></p>
           <div class="accordion-list">
             <ul>
               {% for item in ac.institution.all %}
@@ -74,6 +71,5 @@
     </div>
   </section>
   <!-- End Why Us Section -->
-
   {% endblock %}
-</html>
+

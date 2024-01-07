@@ -114,3 +114,10 @@ class New(models.Model):
     def __str__(self) -> str:
         return self.short_descripion
 
+class MetaData(models.Model):
+    view = models.CharField(max_length=40)
+    key_words = models.TextField()
+    description = models.TextField()
+
+    def __str__(self) -> str:
+        return "{},{}".format(self.view,self.description)

@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.views import View
-from .models import Home_page_info,Contact_info,Available_courses,About,Services_info,Available_country,New
+from .models import Home_page_info,Contact_info,Available_courses,About,Services_info,Available_country,New,MetaData
 # Create your views here.
+
+def meta(v:str,context:list)-> None:
+    #context['meta'] = MetaData.objects.get(view=v)
+    pass
 
 def index(request):
     context = {
@@ -13,6 +17,7 @@ def index(request):
         'course':Available_courses.objects.get(id=1).course.all,
         'acs':Available_country.objects.all,
     }
+    meta('index',context)
     
     return render(request,'index.html',context)
 
@@ -22,10 +27,9 @@ def about(request):
         'p':Contact_info.objects.get(id=1).phone_numbers.all,
         'e':Contact_info.objects.get(id=1).emails.all,
         'about':About.objects.get(id=1),
-        'acs':Available_country.objects.all,
-
-        
+        'acs':Available_country.objects.all,  
     }
+    meta('about',context)
     return render(request,'about.html',context)
 
 def available_courses(request):
@@ -36,8 +40,8 @@ def available_courses(request):
         'avalable_courses':Available_courses.objects.get(id=1),
         'course':Available_courses.objects.get(id=1).course.all,
         'acs':Available_country.objects.all,
-
     }
+    meta('available_courses',context)
     return render(request,'avalable courses.html',context)
 
 def services(request):
@@ -48,11 +52,8 @@ def services(request):
         's':Services_info.objects.get(id=1),
         'si':Services_info.objects.get(id=1).services.all,
         'acs':Available_country.objects.all,
-
-
     }
-    print(Services_info.objects.get(id=1))
-    
+    meta('services',context)
     return render(request,'services.html',context)
 
 
@@ -63,9 +64,7 @@ def news(request):
         'e':Contact_info.objects.get(id=1).emails.all,
         'acs':Available_country.objects.all,
         'news':New.objects.all,
-    }
-
-            
+    }     
     return render(request,'news.html',context)
 
 def news_details(request,title):
@@ -75,13 +74,10 @@ def news_details(request,title):
         'e':Contact_info.objects.get(id=1).emails.all,
         'news':New.objects.get(title=title)
     }
-
-    
     return render(request,'news-details.html',context)
 
 
 def avaliable_countries(request,url):
-
     context={
         'c':Contact_info.objects.get(id=1),
         'p':Contact_info.objects.get(id=1).phone_numbers.all,
