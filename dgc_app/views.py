@@ -19,7 +19,7 @@ def index(request):
     }
     meta('index',context)
     
-    return render(request,'index.html',context)
+    return render(request,'dgc_app/index.html',context)
 
 def about(request):
     context = {
@@ -30,7 +30,7 @@ def about(request):
         'acs':Available_country.objects.all,  
     }
     meta('about',context)
-    return render(request,'about.html',context)
+    return render(request,'dgc_app/about.html',context)
 
 def available_courses(request):
     context = {
@@ -42,7 +42,7 @@ def available_courses(request):
         'acs':Available_country.objects.all,
     }
     meta('available_courses',context)
-    return render(request,'avalable courses.html',context)
+    return render(request,'dgc_app/avalable_courses.html',context)
 
 def services(request):
     context = {
@@ -54,7 +54,7 @@ def services(request):
         'acs':Available_country.objects.all,
     }
     meta('services',context)
-    return render(request,'services.html',context)
+    return render(request,'dgc_app/services.html',context)
 
 
 def news(request):
@@ -66,7 +66,7 @@ def news(request):
         'news':New.objects.all,
     }    
     meta('news',context) 
-    return render(request,'news.html',context)
+    return render(request,'dgc_app/news.html',context)
 
 def news_details(request,title):
     context = {
@@ -76,7 +76,7 @@ def news_details(request,title):
         'news':New.objects.get(title=title)
     }
     meta(title,context)
-    return render(request,'news-details.html',context)
+    return render(request,'dgc_app/news-details.html',context)
 
 
 def avaliable_countries(request,url):
@@ -88,6 +88,6 @@ def avaliable_countries(request,url):
         'acs':Available_country.objects.all,
     }
     meta(url,context)
-    return render(request,'avalable_country.html',context)
+    return render(request,'dgc_app/avalable_country.html',context)
 
 
