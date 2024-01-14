@@ -3,7 +3,7 @@ from django.views import View
 from .models import Home_page_info,Contact_info,Available_courses,About,Services_info,Available_country,New,MetaData
 # Create your views here.
 
-def meta(v:str,context:list)-> None:
+def meta(page_title:str,context:list)-> None:
     #context['meta'] = MetaData.objects.get(view=v)
     pass
 
@@ -64,7 +64,8 @@ def news(request):
         'e':Contact_info.objects.get(id=1).emails.all,
         'acs':Available_country.objects.all,
         'news':New.objects.all,
-    }     
+    }    
+    meta('news',context) 
     return render(request,'news.html',context)
 
 def news_details(request,title):
@@ -74,6 +75,7 @@ def news_details(request,title):
         'e':Contact_info.objects.get(id=1).emails.all,
         'news':New.objects.get(title=title)
     }
+    meta(title,context)
     return render(request,'news-details.html',context)
 
 
@@ -85,6 +87,7 @@ def avaliable_countries(request,url):
         'ac':Available_country.objects.get(url=url),
         'acs':Available_country.objects.all,
     }
+    meta(url,context)
     return render(request,'avalable_country.html',context)
 
 

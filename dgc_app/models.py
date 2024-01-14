@@ -115,9 +115,9 @@ class New(models.Model):
         return self.short_descripion
 
 class MetaData(models.Model):
-    view = models.CharField(max_length=40)
+    page_name = models.CharField(max_length=40)
     key_words = models.TextField()
     description = models.TextField()
 
     def __str__(self) -> str:
-        return "{},{}".format(self.view,self.description)
+        return "{},{}".format(self.page_name,self.description)
