@@ -1,31 +1,31 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}About Us{% endblock %}
 {% block content %}
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-      <ol>
-        <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
-        <li>About</li>
-      </ol>
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+      <li>About</li>
+    </ol>
+  </div>
+</section>
+<!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>About Us</h2>
     </div>
-  </section>
-  <!-- End Breadcrumbs -->
 
-  <!-- ======= About Us Section ======= -->
-  <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h2>About Us</h2>
-      </div>
-
-      <div class="row content">
-        <div>
-          <p>{{about.description | safe}}</p>
-        </div>
+    <div class="row content">
+      <div>
+        <p>{{about.description | safe}}</p>
       </div>
     </div>
-  </section>
-  <!-- End About Us Section -->
-  {% endblock %}
-
+  </div>
+</section>
+<!-- End About Us Section -->
+{% endblock %}
