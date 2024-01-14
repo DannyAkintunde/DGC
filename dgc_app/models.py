@@ -111,6 +111,7 @@ class New(models.Model):
     short_descripion = models.TextField()
     headline = models.CharField(max_length=100)
     image = models.ManyToManyField(News_image, null=True,blank=True)
+    created = models.DateTimeField(auto_now_add=True)
     def __str__(self) -> str:
         return self.short_descripion
 
