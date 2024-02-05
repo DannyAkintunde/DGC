@@ -17,6 +17,9 @@ class Institution(models.Model):
     requirements = models.TextField(max_length=300,null=True,blank=True)
     ordered_list = models.BooleanField()
 
+    class Meta():
+        ordering = ['-num','-list_id']
+
     def __str__(self):
         return self.title
 
