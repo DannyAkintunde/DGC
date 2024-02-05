@@ -18,7 +18,7 @@ class Institution(models.Model):
     ordered_list = models.BooleanField()
 
     class Meta():
-        ordering = ['-num','-list_id']
+        ordering = ['num','list_id']
 
     def __str__(self):
         return self.title
