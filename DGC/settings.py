@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ws_=!lnze9zh#&hm8fni70d2*t3owf1c85al-*r*sb6i&#z+u0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.vercel.app','.now.sh', '127.0.0.1','.localhost','.uks1.devtunnels.ms','test.diamondgiantconsulting.com/','diamondgiantconsulting.com','www.diamondgiantconsulting.com','.com']
 
@@ -88,7 +88,18 @@ DATABASES = {
     'OPTIONS': {'sslmode': 'require'},
   }
 }
-
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST':'',
+        'PORT':'',
+    }
+}
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

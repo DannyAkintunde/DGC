@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% endblock %}</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="{{meta.description}}" name="description">
+  <meta content="{{meta.key_words}}" name="keywords">
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'assets/img/apple-touch-icon.png' %}">
@@ -53,7 +53,7 @@
             <ul>
               {% for item in acs %}
               {% if not ac %}
-              <li><a href="avaliable-countries/{{item.url}}">{{item.nav_title}}</a></li>
+              <li><a href="{% url 'dgc_app:avaliable_country' item.url %}">{{item.nav_title}}</a></li>
               {% else %}
               {% if ac.url == item.url %}
               <li><a href="">{{item.nav_title}}</a></li>

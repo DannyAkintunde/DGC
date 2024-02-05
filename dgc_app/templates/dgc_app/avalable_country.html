@@ -1,76 +1,81 @@
-{% extends "base.html" %}
-{% load static %}
-{% block title %}{{ac.nav_title}}{% endblock %}
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %}
+{{ac.nav_title}}
+{% endblock %} 
 {% block content %}
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
-      <ol>
-        <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
-        <li>Available Countries</li>
-        <li>{{ac.nav_title}}</li>
-      </ol>
-    </div>
-  </section>
-  <!-- End Breadcrumbs -->
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+  <div class="container">
+    <ol>
+      <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+      <li>Available Countries</li>
+      <li>{{ac.nav_title}}</li>
+    </ol>
+  </div>
+</section>
+<!-- End Breadcrumbs -->
 
-  <!-- ======= Why Us Section ======= -->
-  <section id="why-us" class="why-us section-bg">
-    <div class="container-fluid" data-aos="fade-up">
-      <div class="row">
-        <div>
-          <div class="content">
-            <h3>
-              {{ac.title}}
-              <strong>DIAMOND GIANT CONSULTING</strong>
-            </h3>
-          </div>
-          <div class="accordion-list">
-            <ul>
-              {% for item in ac.institution.all %}
-              <li>
-                <div style="padding-bottom: 20px">
-                  <a
-                    data-bs-toggle="collapse"
-                    class="collapsed"
-                    data-bs-target="#accordion-list-{{item.list_id}}"
-                    ><span>{{item.num}}</span>{{item.title}}<i
-                      class="bx bx-chevron-down icon-show"
-                    ></i
-                    ><i class="bx bx-chevron-up icon-close"></i
-                  ></a>
-                </div>
-                <div
-                  id="accordion-list-{{item.list_id}}"
-                  class="collapse"
-                  data-bs-parent=".accordion-list"
-                >
-                  {% if item.ordered_list %}
-                  <ol style="font-size: 15px">
-                    {% for school in item.schools.all %}
-                    <li style="padding: 0px; padding-left: 20px">
-                      {{school.name}}
-                    </li>
-                    {% endfor %}
-                  </ol>
-                  {% else %}
-                  <ul style="font-size: 15px">
-                    {% for school in item.schools.all %}
-                    <li style="padding: 0px; padding-left: 20px">
-                      {{school.name}}
-                    </li>
-                    {% endfor %}
-                  </ul>
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us section-bg">
+  <div class="container-fluid" data-aos="fade-up">
+    <div class="row">
+      <div>
+        <div class="content">
+          <h3>
+            {{ac.title}}
+            <strong>DIAMOND GIANT CONSULTING</strong>
+          </h3>
+        </div>
+        <div class="accordion-list">
+          <ul>
+            {% for item in ac.institution.all %}
+            <li>
+              <div style="padding-bottom: 20px">
+                <a
+                  data-bs-toggle="collapse"
+                  class="collapsed"
+                  data-bs-target="#accordion-list-{{item.list_id}}"
+                  ><span>{{item.num}}</span>{{item.title}}<i
+                    class="bx bx-chevron-down icon-show"
+                  ></i
+                  ><i class="bx bx-chevron-up icon-close"></i
+                ></a>
+              </div>
+              <div
+                id="accordion-list-{{item.list_id}}"
+                class="collapse"
+                data-bs-parent=".accordion-list"
+              >
+                {% if item.ordered_list %}
+                <ol style="font-size: 15px">
+                  {% for school in item.schools.all %}
+                  <li style="padding: 0px; padding-left: 20px">
+                    {{school.name}}
+                  </li>
+                  {% endfor %}
+                </ol>
+                {% else %}
+                <ul style="font-size: 15px">
+                  {% for school in item.schools.all %}
+                  <li style="padding: 0px; padding-left: 20px">
+                    {{school.name}}
+                  </li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+                <div style="padding-top: 10px">
+                  {% if item.requirements %} {{ item.requirements|safe }}
                   {% endif %}
                 </div>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
-  </section>
-  <!-- End Why Us Section -->
-  {% endblock %}
-
+  </div>
+</section>
+<!-- End Why Us Section -->
+{% endblock %}

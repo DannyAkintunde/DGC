@@ -4,8 +4,8 @@ from .models import Home_page_info,Contact_info,Available_courses,About,Services
 # Create your views here.
 
 def meta(page_title:str,context:list)-> None:
-    #context['meta'] = MetaData.objects.get(view=v)
-    pass
+    if MetaData.objects.filter(page_name=page_title).count() > 0:
+        context['meta'] = MetaData.objects.filter(page_name=page_title)[0]
 
 def index(request):
     context = {
@@ -86,8 +86,9 @@ def avaliable_countries(request,url):
         'e':Contact_info.objects.get(id=1).emails.all,
         'ac':Available_country.objects.get(url=url),
         'acs':Available_country.objects.all,
+        
     }
-    meta(url,context)
+    meta(context['ac'].nav_title,context)
     return render(request,'dgc_app/avalable_country.html',context)
 
 

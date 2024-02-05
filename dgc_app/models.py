@@ -8,11 +8,13 @@ class School(models.Model):
         return self.name
 
 
+
 class Institution(models.Model):
     title = models.CharField(max_length=100)
     num = models.CharField(max_length=3)
     list_id = models.IntegerField(unique=True)
     schools = models.ManyToManyField(School)
+    requirements = models.TextField(max_length=300,null=True,blank=True)
     ordered_list = models.BooleanField()
 
     def __str__(self):
@@ -26,6 +28,7 @@ class Available_country(models.Model):
     title = models.CharField(max_length=200)
     nav_title = models.CharField(max_length=100)
     institution = models.ManyToManyField(Institution)
+   
 
     def __str__(self):
         return self.title
@@ -112,6 +115,9 @@ class New(models.Model):
     headline = models.CharField(max_length=100)
     image = models.ManyToManyField(News_image, null=True,blank=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created']
     def __str__(self) -> str:
         return self.short_descripion
 
@@ -121,4 +127,4 @@ class MetaData(models.Model):
     description = models.TextField()
 
     def __str__(self) -> str:
-        return "{},{}".format(self.page_name,self.description)
+        return "{},{}".format(self.page_name,"".join(self.description.split()[:20]))
