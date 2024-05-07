@@ -5,6 +5,7 @@ app_name = 'dgc_app'
 urlpatterns = [
     path('', views.index,name='index'),
     path('about/',views.about,name='about'),
+    path('awards/', views.awards,name='awards'),
     path('courses/',views.available_courses,name='courses'),
     path('services/',views.services,name='services'),
     path('news/', views.news, name='news' ),

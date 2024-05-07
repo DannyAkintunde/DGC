@@ -32,6 +32,16 @@ def about(request):
     meta('about',context)
     return render(request,'dgc_app/about.html',context)
 
+def awards (request):
+    context = {
+        'c':Contact_info.objects.get(id=1),
+        'p':Contact_info.objects.get(id=1).phone_numbers.all,
+        'e':Contact_info.objects.get(id=1).emails.all,
+        'acs':Available_country.objects.all,  
+    }
+    meta('awards',context)
+    return render(request,'dgc_app/awards.html',context)
+
 def available_courses(request):
     context = {
         'c':Contact_info.objects.get(id=1),
