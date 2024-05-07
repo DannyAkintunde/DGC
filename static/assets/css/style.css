@@ -1860,3 +1860,74 @@ section {
     flex: 0 0 auto;
     width: 12.5%;
 }
+
+
+
+.awardcontainer {
+    max-width: 800px;
+    margin: 3rem auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.awardcontainer h1 {
+    text-align: center;
+    color: #333;
+}
+
+.award {
+    text-align: center;
+    margin-top: 30px;
+    opacity: 0;
+}
+
+.award img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+#iasBadge {
+    text-align: center;
+    margin-top: 40px;
+}
+.animated-heading, .animated-award, .animated-badge,.awardcontanier {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .awardcontainer {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    .award {
+        margin-top: 20px;
+    }
+    
+    p {
+        font-size: 16px;
+    }
+}

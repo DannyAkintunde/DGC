@@ -10,14 +10,37 @@
     <div class="container">
         <ol>
         <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
-        <li>About</li>
+        <li>Awards</li>
         </ol>
     </div>
     </section>
     <!-- End Breadcrumbs -->
-    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
 
-    <dotlottie-player src="https://lottie.host/2716b760-1a60-4013-80a1-89578dc3e707/wyJBO1ywiK.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
-    <span id='iasBadge' data-account-id='2820'></span><script async defer crossorigin="anonymous" src="https://www-cdn.icef.com/scripts/iasbadgeid.js">
+    <div class="awardcontainer" style="">
+        <h1 class="animated-heading text-primary">ICEF Agency Award - Diamond Giant Consulting</h1>
+        
+        <div class="award animated-award">
+            <img src="{% static 'assets/img/awards/ICEFCERTIFICATE2024.jpg' %}" alt="ICEF Agency Award" id="award-image">
+            <p>We are proud to announce that Diamond Giant Consulting has been awarded the prestigious ICEF Agency Award!</p>
+            <p>This recognition is a testament to our commitment to excellence in education and international student recruitment.</p>
+            <p>Thank you to all our clients, partners, and team members for their dedication and support.</p>
+        </div>
+        
+        <div id="iasBadge" class="animated-badge" data-account-id="2820"></div>
+    </div>
+<script>
+    // JavaScript for making the image responsive
+    window.onload = function() {
+        var img = document.getElementById('award-image');
+        var containerWidth = document.querySelector('.awardcontainer').offsetWidth;
+        var imgWidth = img.offsetWidth;
+        if (imgWidth > containerWidth) {
+            img.style.width = '100%';
+            img.style.height = 'auto';
+        }
+    };
+</script>
+
+<script async defer crossorigin="anonymous" src="https://www-cdn.icef.com/scripts/iasbadgeid.js"></script>
 {% endblock content %}
      
