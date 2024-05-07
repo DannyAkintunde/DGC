@@ -23,6 +23,5 @@
         "src": "/(.*)",
         "dest": "DGC/wsgi.py"
       }
-    ],
-    "regions": ["all"]
+    ]
 }

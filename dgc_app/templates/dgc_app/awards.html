@@ -4,9 +4,20 @@
 {% block title %}
     Awards
 {% endblock title %}
-
 {% block content %}
-    <h1>Hello World</h1>
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+        <ol>
+        <li><a href="{% url 'dgc_app:index' %}">Home</a></li>
+        <li>About</li>
+        </ol>
+    </div>
+    </section>
+    <!-- End Breadcrumbs -->
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+
+    <dotlottie-player src="https://lottie.host/2716b760-1a60-4013-80a1-89578dc3e707/wyJBO1ywiK.json" background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay></dotlottie-player>
     <span id='iasBadge' data-account-id='2820'></span><script async defer crossorigin="anonymous" src="https://www-cdn.icef.com/scripts/iasbadgeid.js">
 {% endblock content %}
      
