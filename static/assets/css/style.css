@@ -1868,7 +1868,7 @@ section {
     margin: 3rem auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: .5rem;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
