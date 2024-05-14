@@ -124,7 +124,6 @@
         </div>
 
         <div class="row">
-
           <div >
             <div class="info">
               <div class="address">
@@ -132,7 +131,6 @@
                 <h4>Location:</h4>
                 <p>{{c.address}}</p>
               </div>
-
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
@@ -144,7 +142,6 @@
                 {% endfor %}
                 </p>
               </div>
-
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
@@ -152,15 +149,13 @@
                   {{item.phone_number}}
                   {% endfor %}</p>
               </div>
-
-            </div>
-
+            </div>           
           </div>
-
-
-
+          <div>
+              <div id="iasBadge" class="animated-badge" data-account-id="2820"></div>
+    </div>
+          </div>
         </div>
-
       </div>
     </section><!-- End Contact Section -->
 
@@ -213,7 +208,7 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js'%}"></script>
-
+<script async defer crossorigin="anonymous" src="https://www-cdn.icef.com/scripts/iasbadgeid.js"></script>
 </body>
 
 </html>
